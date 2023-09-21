@@ -11,4 +11,22 @@ const createSemester = async (req: Request, res: Response, next: NextFunction) =
   }
 };
 
-export const AcademicSemesterController = { createSemester };
+const getAllSemester = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await AcademicSemesterService.getAllSemester(req);
+    sendResponse(res, result);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getSingleSemester = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await AcademicSemesterService.getSingleSemester(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const AcademicSemesterController = { createSemester, getAllSemester, getSingleSemester };
