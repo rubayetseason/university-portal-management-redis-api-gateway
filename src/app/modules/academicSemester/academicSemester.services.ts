@@ -44,9 +44,20 @@ const updateSemester = async (req: Request): Promise<IGenericResponse> => {
   return response;
 };
 
+const deleteSemester = async (req: Request): Promise<IGenericResponse> => {
+  const { id } = req.params;
+  const response: IGenericResponse = await HttpService.delete(`/academic-semester/${id}`, {
+    headers: {
+      Authorization: req.headers.authorization
+    }
+  });
+  return response;
+};
+
 export const AcademicSemesterService = {
   createSemester,
   getAllSemester,
   getSingleSemester,
-  updateSemester
+  updateSemester,
+  deleteSemester
 };
