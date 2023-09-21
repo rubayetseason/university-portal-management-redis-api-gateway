@@ -36,7 +36,7 @@ const getSingleSemester = async (req: Request): Promise<IGenericResponse> => {
 
 const updateSemester = async (req: Request): Promise<IGenericResponse> => {
   const { id } = req.params;
-  const response: IGenericResponse = await HttpService.patch(`/academic-semester/${id}`, {
+  const response: IGenericResponse = await HttpService.patch(`/academic-semester/${id}`, req.body, {
     headers: {
       Authorization: req.headers.authorization
     }
