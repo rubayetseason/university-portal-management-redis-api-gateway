@@ -5,7 +5,7 @@ import {
   AcademicSemesterTitles
 } from './academicSemester.constants';
 
-const create = z.object({
+const createZodAcademicSemester = z.object({
   body: z.object({
     year: z.number({
       required_error: 'Year is required'
@@ -25,7 +25,7 @@ const create = z.object({
   })
 });
 
-const update = z.object({
+const updateZodAcademicSemester = z.object({
   body: z.object({
     title: z.enum([...AcademicSemesterTitles] as [string, ...string[]]).optional(),
     code: z.enum([...AcademicSemesterCodes] as [string, ...string[]]).optional(),
@@ -36,6 +36,6 @@ const update = z.object({
 });
 
 export const AcademicSemesterValidation = {
-  create,
-  update
+  createZodAcademicSemester,
+  updateZodAcademicSemester
 };
