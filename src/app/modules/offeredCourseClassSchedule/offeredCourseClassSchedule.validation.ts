@@ -1,6 +1,14 @@
 import { z } from 'zod';
 
-const daysInWeek = ['SATURDAY', 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY'];
+export const daysInWeek = [
+  'SATURDAY',
+  'SUNDAY',
+  'MONDAY',
+  'TUESDAY',
+  'WEDNESDAY',
+  'THURSDAY',
+  'FRIDAY'
+];
 
 const timeStringSchema = z.string().refine(
   (time) => {
