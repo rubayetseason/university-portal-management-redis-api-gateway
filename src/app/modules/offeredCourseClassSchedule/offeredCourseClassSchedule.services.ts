@@ -63,9 +63,9 @@ const deleteClassSchedule = async (req: Request): Promise<IGenericResponse> => {
 };
 
 export const OfferedCourseClassScheduleService = {
+  createClassSchedule,
   getAllClassSchedules,
   getSingleClassSchedule,
   updateClassSchedule,
-  deleteClassSchedule,
-  createClassSchedule
+  deleteClassSchedule
 };
