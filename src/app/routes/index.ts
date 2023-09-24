@@ -12,6 +12,7 @@ import { SemesterRegistrationRoutes } from '../modules/semesterRegistration/seme
 import { StudentEnrolledCourseRoutes } from '../modules/studentEnrolledCourse/studentEnrolledCourse.route';
 import { StudentEnrolledCourseMarksRoutes } from '../modules/studentEnrolledCourseMarks/studentEnrolledCourseMarks.route';
 import { StudentSemesterPaymentRoutes } from '../modules/studentSemesterPayment/studentSemesterPayment.route';
+import { ManagementDepartmentRoutes } from '../modules/managementDepartment/managementDepartment.route';
 
 const router = express.Router();
 
@@ -67,6 +68,10 @@ const moduleRoutes = [
   {
     path: '/student-semester-payment',
     routes: StudentSemesterPaymentRoutes
+  },
+  {
+    path: '/management-department',
+    routes: ManagementDepartmentRoutes
   }
 ];
 
