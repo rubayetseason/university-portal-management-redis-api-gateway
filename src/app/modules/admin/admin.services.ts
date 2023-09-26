@@ -3,7 +3,7 @@ import { IGenericResponse } from '../../../interfaces/common';
 import { AuthService } from '../../../shared/axios';
 
 const getAllAdmins = async (req: Request): Promise<IGenericResponse> => {
-  const response: IGenericResponse = await AuthService.get('/admins', {
+  const response: IGenericResponse = await AuthService.get('/admin', {
     params: req.query,
     headers: {
       Authorization: req.headers.authorization
@@ -14,7 +14,7 @@ const getAllAdmins = async (req: Request): Promise<IGenericResponse> => {
 
 const getSingleAdmin = async (req: Request): Promise<IGenericResponse> => {
   const { id } = req.params;
-  const response: IGenericResponse = await AuthService.get(`/admins/${id}`, {
+  const response: IGenericResponse = await AuthService.get(`/admin/${id}`, {
     headers: {
       Authorization: req.headers.authorization
     }
@@ -24,7 +24,7 @@ const getSingleAdmin = async (req: Request): Promise<IGenericResponse> => {
 
 const updateAdmin = async (req: Request): Promise<IGenericResponse> => {
   const { id } = req.params;
-  const response: IGenericResponse = await AuthService.patch(`/admins/${id}`, req.body, {
+  const response: IGenericResponse = await AuthService.patch(`/admin/${id}`, req.body, {
     headers: {
       Authorization: req.headers.authorization
     }
@@ -34,7 +34,7 @@ const updateAdmin = async (req: Request): Promise<IGenericResponse> => {
 
 const deleteAdmin = async (req: Request): Promise<IGenericResponse> => {
   const { id } = req.params;
-  const response: IGenericResponse = await AuthService.delete(`/admins/${id}`, {
+  const response: IGenericResponse = await AuthService.delete(`/admin/${id}`, {
     headers: {
       Authorization: req.headers.authorization
     }
