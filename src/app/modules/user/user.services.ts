@@ -2,6 +2,7 @@ import { Request } from 'express';
 import { FileUploadHelper } from '../../../helpers/FileUploadHelper';
 import { IUploadFile } from '../../../interfaces/file';
 import { AuthService } from '../../../shared/axios';
+import { IGenericResponse } from '../../../interfaces/common';
 
 const createStudent = async (req: Request) => {
   const file = req.file as IUploadFile;
@@ -42,6 +43,15 @@ const createStudent = async (req: Request) => {
     //if data found set mongodb semester id to databody semester id
     req.body.student.academicSemester = academicSemesterResponse.data[0].id;
   }
+
+  //send the req data to auth service
+  const response: IGenericResponse = await AuthService.post('/user/create-student', req.body, {
+    headers: {
+      Authorization: req.headers.authorization
+    }
+  });
+
+  return response;
 };
 
 export const UserService = { createStudent };
