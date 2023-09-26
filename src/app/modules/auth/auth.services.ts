@@ -7,4 +7,14 @@ const loginUser = async (req: Request): Promise<IGenericResponse> => {
   return response;
 };
 
-export const AuthenticationService = { loginUser };
+const refreshToken = async (req: Request): Promise<IGenericResponse> => {
+  const { refreshToken } = req.cookies;
+  const response: IGenericResponse = await AuthService.post('/auth/refresh-token', req.body, {
+    headers: {
+      cookie: `refreshToken=${refreshToken}`
+    }
+  });
+  return response;
+};
+
+export const AuthenticationService = { loginUser, refreshToken };
