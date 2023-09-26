@@ -3,15 +3,11 @@ import { IGenericResponse } from '../../../interfaces/common';
 import { AuthService } from '../../../shared/axios';
 
 const createManagement = async (req: Request): Promise<IGenericResponse> => {
-  const response: IGenericResponse = await AuthService.post(
-    `/management-department/create-department`,
-    req.body,
-    {
-      headers: {
-        Authorization: req.headers.authorization
-      }
+  const response: IGenericResponse = await AuthService.post(`/management-department`, req.body, {
+    headers: {
+      Authorization: req.headers.authorization
     }
-  );
+  });
   return response;
 };
 
