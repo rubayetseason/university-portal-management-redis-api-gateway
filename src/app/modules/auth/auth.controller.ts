@@ -51,4 +51,13 @@ const refreshToken = async (req: Request, res: Response, next: NextFunction) => 
   }
 };
 
-export const AuthenticationController = { loginUser, refreshToken };
+const changePassword = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await AuthenticationService.changePassword(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const AuthenticationController = { loginUser, refreshToken, changePassword };
